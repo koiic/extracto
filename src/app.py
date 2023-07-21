@@ -1,6 +1,9 @@
 # This will be the entry point for the application
 import argparse
+import asyncio
 import os
+
+from downloader import download_images_from_file
 
 
 def main():
@@ -20,9 +23,12 @@ def main():
     parser.add_argument('--batch_size', type=int, default=100, help='Number of concurrent downloads')
     args = parser.parse_args()
 
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir)
+    if not args.output_dir:
+        # use default output directory - download_images
+        args.output_dir = os.path.join(os.getcwd(), './download_images')
 
+    # call the download_images_from_file function
+    asyncio.run(download_images_from_file(args.filepath, args.output_dir, args.batch_size))
 
 
 if __name__ == "__main__":
