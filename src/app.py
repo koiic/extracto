@@ -1,9 +1,13 @@
 # This will be the entry point for the application
 import argparse
 import asyncio
+import logging
 import os
 
 from downloader import download_images_from_file
+
+# Set Logging
+logging.basicConfig(level=logging.INFO)
 
 
 def main():
@@ -32,4 +36,5 @@ def main():
 
 
 if __name__ == "__main__":
+    logging.info("\n Starting image extractor...")
     main()
