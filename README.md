@@ -1,9 +1,8 @@
 # extracto
 
 
-[Image Downloader Logo](https://example.com/image_downloader_logo.png)
-
-extracto is a Python application that allows you to download images from a list of URLs. It uses asynchronous requests and is designed to be fast and memory-efficient. You can run the application either directly on your local computer or using Docker for easy setup and isolation.
+## GET-SAFE TAKE HOME TEST
+This is an application that allows you to download images from a list of URLs. It uses asynchronous requests and is designed to be fast and memory-efficient. You can run the application either directly on your local computer or using Docker for easy setup and isolation.
 
 ## Features
 
@@ -26,6 +25,10 @@ extracto is a Python application that allows you to download images from a list 
    ```bash
    git clone https://github.com/koiic/extracto.git
    cd extracto
+   create a virtual environment and activate it
+   example: python3 -m venv venv or virtualenv venv
+    source venv/bin/activate . (linux)
+    venv\Scripts\activate (windows)
    pip install -r requirements.txt
     ```
    
@@ -41,16 +44,15 @@ extracto is a Python application that allows you to download images from a list 
 3. Run the application:
 
    ```bash
-    python app.py --filepath <path-to-input-file> --output-dir <path-to-output-directory>
+    python app.py --filepath <path-to-input-file> --output_dir <path-to-output_directory>
     ```
 
     For example: using the already added txt file
 
     ```bash
-    python app.py --filepath test_images_url.txt --output-dir <path-to-output-directory>
+    python app.py --filepath test_images_url.txt --output_dir <path-to-output_directory>
     ```
-   
-    The images will be downloaded to the specified output directory. If the directory does not exist, it will be created automatically.
+   you will see the logs in the terminal and the images will be downloaded to the specified output directory. If the directory does not exist, it will be created automatically. If the directory does not exist, it will be created automatically.
 4. (Optional) Run the tests:
 
    ```bash
@@ -83,13 +85,13 @@ extracto is a Python application that allows you to download images from a list 
 2. Run the application:
 
    ```bash
-   docker run -v <path-to-input-file>:/app/test_image_urls.txt -v <path-to-output-directory>:/app/images image-downloader
+   docker run -v <path-to-input-file>:/app/test_image_urls.txt -v <path-to-output_directory>:/app/images image-downloader
    ```
    
    For example:
 
    ```bash
-   docker run -v /Users/username/Downloads/image_urls.txt:/app/test_image_urls.txt -v /Users/username/Downloads/images:/app/images image-downloader --filepath /app/test_images_url.txt --output_dir /app/output
+   docker run -v </path/to/txt/file>:/app/test_image_urls.txt -v </path/to/download/folder>:/app/images extracto --filepath /app/test_images_url.txt --output_dir /app/output
 
    ```
    

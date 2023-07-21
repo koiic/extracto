@@ -10,6 +10,9 @@ RUN apt-get update && \
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+COPY app.py /app
+COPY downloader.py /app
+COPY test_image_downloader.py /app
+COPY test_images_url.txt /app
 
 ENTRYPOINT ["python", "app.py"]
