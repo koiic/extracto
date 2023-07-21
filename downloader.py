@@ -33,6 +33,7 @@ async def download_image(session, url, output_dir):
     try:
         async with session.get(url) as response:
             if response.status == 200:
+                logging.info(f"Downloading {url} .....")
                 filename = os.path.join(output_dir, os.path.basename(urlsplit(url).path))
                 async with aiofiles.open(filename, 'wb') as f:
                     while True:
@@ -40,25 +41,13 @@ async def download_image(session, url, output_dir):
                         if not chunk:
                             break
                         await f.write(chunk)
+                    logging.info(f"Downloaded {url}")
             else:
                 print(f"Failed to download {url}. Status code: {response.status}")
                 logging.info(f"Failed to download {url}. Status code: {response.status}")
     except Exception as e:
         logging.error(f"Error while downloading {url}: {e}")
 
-
-# async def download_images_from_file(file_path, output_dir, batch_size=100):
-#     if not os.path.exists(output_dir):
-#         os.makedirs(output_dir)
-#
-#     async with aiohttp.ClientSession() as session:
-#         with open(file_path, 'r') as f:
-#             urls = f.read().split()
-#
-#         tasks = [download_image(session, url, output_dir) for url in urls if await is_valid_image_url(url)]
-#         logging.info(f"Running tasks in background. Total tasks: {len(tasks)}")
-#         logging.info(f"Downloading images to {output_dir}")
-#         await asyncio.gather(*tasks)
 
 
 async def download_images_from_file(file_path, output_dir, batch_size=100):
