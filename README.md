@@ -1,9 +1,9 @@
 # extracto
 
 
-[Image Downloader Logo](https://example.com/image_downloader_logo.png)
+[GET-SAFE TAKE HOME TEST](https://example.com/image_downloader_logo.png)
 
-extracto is a Python application that allows you to download images from a list of URLs. It uses asynchronous requests and is designed to be fast and memory-efficient. You can run the application either directly on your local computer or using Docker for easy setup and isolation.
+This is an application that allows you to download images from a list of URLs. It uses asynchronous requests and is designed to be fast and memory-efficient. You can run the application either directly on your local computer or using Docker for easy setup and isolation.
 
 ## Features
 
